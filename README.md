@@ -8,7 +8,6 @@
 * [Python setup](doc/python.md)
 
 ### Setup
-
 ```
 # create virtualenv
 virtualenv -p $(which python3) env
@@ -23,6 +22,24 @@ deactivate
 pip install -r requirements.txt
 
 # verify code
-pylint app.py
-find . -iname "*.py" | xargs pylint
+pylint app/app.py
+find ./app -iname "*.py" | xargs pylint
+```
+
+### Docker
+```
+# build image
+docker build -t brightwindanalysis/flask-boilerplate:latest .
+
+-p 80:8080 \
+
+# start temporary container
+docker run \
+  --rm \
+  -p 3000:5000 \
+  --name flask-boilerplate \
+  brightwindanalysis/flask-boilerplate:latest
+
+# access container
+docker exec -it flask-boilerplate bash
 ```
