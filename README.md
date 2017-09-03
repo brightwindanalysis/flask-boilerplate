@@ -31,14 +31,15 @@ find ./app -iname "*.py" | xargs pylint
 # build image
 docker build -t brightwindanalysis/flask-boilerplate:latest .
 
--p 80:8080 \
-
 # start temporary container
 docker run \
   --rm \
   -p 3000:5000 \
   --name flask-boilerplate \
   brightwindanalysis/flask-boilerplate:latest
+
+# test
+http :3000
 
 # access container
 docker exec -it flask-boilerplate bash

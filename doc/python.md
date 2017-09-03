@@ -33,7 +33,7 @@ python --version
 deactivate
 
 # install new package
-pip install Flask
+pip install <package>
 
 # update requirements with new package
 pip freeze > requirements.txt
@@ -43,8 +43,4 @@ pip install -r requirements.txt
 
 # generate rc file
 pylint --generate-rcfile > .pylintrc
-
-# verify code
-pylint app.py
-find . -iname "*.py" | xargs pylint 
 ```
