@@ -5,7 +5,7 @@
 ### Documentation
 
 * [Flask](http://flask.pocoo.org)
-* [pip and virtualenv](doc/python.md)
+* [Python setup](doc/python.md)
 
 ### Setup
 
@@ -21,4 +21,8 @@ deactivate
 
 # install requirements
 pip install -r requirements.txt
+
+# verify code
+pylint app.py
+find . -iname "*.py" | xargs pylint
 ```

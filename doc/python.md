@@ -40,4 +40,11 @@ pip freeze > requirements.txt
 
 # install all requirements
 pip install -r requirements.txt
+
+# generate rc file
+pylint --generate-rcfile > .pylintrc
+
+# verify code
+pylint app.py
+find . -iname "*.py" | xargs pylint 
 ```
