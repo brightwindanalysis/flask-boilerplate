@@ -26,7 +26,7 @@ pylint app/app.py
 find ./app -iname "*.py" | xargs pylint
 ```
 
-### Docker
+### Docker TODO dockerfile
 ```
 # build image
 docker build -t brightwindanalysis/flask-boilerplate:latest .

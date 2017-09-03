@@ -3,8 +3,14 @@ import yaml
 
 class Configuration(object):
 
-  def __init__(self, file_name="configuration.yaml"):
-    with open(file_name, 'r') as stream:
+  def __init__(self, file_name='base_config.yaml'):
+
+    print(os.listdir(os.path.dirname(os.path.realpath(__file__))))
+    print(os.path.dirname(os.path.realpath(__file__)))
+    print('{0}'.format(os.path.isfile(file_name)))
+    print('{0}'.format(os.path.exists(file_name)))
+
+    with os.open(file_name, os.O_RDONLY) as stream:
       try:
         self['data'] = yaml.load(stream)
         print(self[data])
