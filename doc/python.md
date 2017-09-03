@@ -31,4 +31,13 @@ python --version
 
 # deactivate virtualenv
 deactivate
+
+# install new package
+pip install Flask
+
+# update requirements with new package
+pip freeze > requirements.txt
+
+# install all requirements
+pip install -r requirements.txt
 ```

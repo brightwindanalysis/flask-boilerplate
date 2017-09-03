@@ -18,4 +18,7 @@ source env/bin/activate
 
 # deactivate virtualenv
 deactivate
+
+# install requirements
+pip install -r requirements.txt
 ```
