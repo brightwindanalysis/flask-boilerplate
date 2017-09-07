@@ -55,5 +55,5 @@ pip install -r requirements.txt
 pylint --generate-rcfile > .pylintrc
 
 # create module
-touch app/{__init__,app,config,main,views}.py
+touch app/{__init__,main}.py
 ```

@@ -24,6 +24,9 @@ pip install -r requirements.txt
 # verify code
 pylint app/app.py
 find ./app -iname "*.py" | xargs pylint
+
+# start app local
+python ./app/main.py
 ```
 
 ### Docker TODO dockerfile
