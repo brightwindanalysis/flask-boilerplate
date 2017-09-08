@@ -1,6 +1,6 @@
 # flask-boilerplate
 
-> TODO
+> TODO work in progress
 
 ### Documentation
 
@@ -24,12 +24,22 @@ pip install -r requirements.txt
 # verify code
 pylint app/app.py
 find ./app -iname "*.py" | xargs pylint
+```
+
+### Run
+```
+# activate virtualenv
+source env/bin/activate
 
 # start app local
 python ./app/main.py
+
+# override config
+FLASK_PORT=8080 \
+  python ./app/main.py
 ```
 
-### Docker TODO dockerfile
+### Docker
 ```
 # build image
 docker build -t brightwindanalysis/flask-boilerplate:latest .
@@ -37,7 +47,8 @@ docker build -t brightwindanalysis/flask-boilerplate:latest .
 # start temporary container
 docker run \
   --rm \
-  -p 3000:5000 \
+  -e FLASK_PORT=8080 \
+  -p 3000:8080 \
   --name flask-boilerplate \
   brightwindanalysis/flask-boilerplate:latest
 
@@ -46,4 +57,6 @@ http :3000
 
 # access container
 docker exec -it flask-boilerplate bash
+
+# TODO verify dockerignore skip __pycache__ and *.pyc
 ```
