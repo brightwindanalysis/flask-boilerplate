@@ -21,4 +21,4 @@ class Configuration(object):
     return os.getenv('FLASK_HOST', self.data['flask']['host'])
 
   def flask_port(self):
-    return os.getenv('FLASK_PORT', self.data['flask']['port'])
+    return int(os.getenv('FLASK_PORT', self.data['flask']['port']))
