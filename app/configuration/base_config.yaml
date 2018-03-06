@@ -1,9 +1,0 @@
-app:
-  name: flask-boilerplate
-
-flask:
-  debug: True
-  # FLASK_HOST
-  host: 0.0.0.0
-  # FLASK_PORT
-  port: 3000
