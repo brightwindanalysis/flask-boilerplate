@@ -1,5 +1,6 @@
 from app import app
 from utils.logger import Logger
+import api.example_api
 
 logger = Logger("example.log")
 
@@ -8,4 +9,4 @@ def main():
     app.run()
 
 if __name__ == '__main__':
-  main()
+    main()

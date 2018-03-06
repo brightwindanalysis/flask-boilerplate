@@ -42,8 +42,11 @@ find ./app -iname "*.py" | xargs pylint
 pip install --editable .
 pip install -e .
 
+# clean cached files
+rm -fr .eggs/ *.egg-info */__pycache__/
+
 # run in debug
-export FLASK_APP=app
+export FLASK_APP=main
 export FLASK_DEBUG=1
 flask run
 ```

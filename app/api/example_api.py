@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request
 from flask import abort, redirect, url_for
 
-#from app import app
+from app import app
 
 # http://127.0.0.1:5000/static/example.txt
 
