@@ -4,3 +4,13 @@
 .idea/
 *.iml
 .vscode
+
+venv
+
+__pycache__
+*.pyc
+.pytest_cache/
+
+*.egg-info
+.eggs
+
