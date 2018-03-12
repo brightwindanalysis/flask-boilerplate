@@ -3,13 +3,13 @@ from flask import render_template
 from flask import request
 from flask import abort, redirect, url_for
 
-from app import app
+from app.fapp import app
 
 # http://127.0.0.1:5000/static/example.txt
 
 # http://127.0.0.1:5000
 @app.route('/')
-def hello_world():
+def index():
     app.logger.debug('A value for debugging')
     app.logger.warning('A warning occurred (%d apples)', 42)
     app.logger.error('An error occurred')

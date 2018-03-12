@@ -1,4 +1,10 @@
-from app import app
+from flask import Flask
+
+app = Flask(__name__)
+
+#import app.api.example_api
+
+'''
 from utils.logger import Logger
 import api.example_api
 
@@ -10,3 +16,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+'''
