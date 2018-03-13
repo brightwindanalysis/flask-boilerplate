@@ -31,12 +31,12 @@ pip install pylint
 pip freeze > requirements.txt
 
 # run tests
-python tests/app_test.py
+python tests/application_test.py
 python setup.py test
 
 # linting
-pylint app/main.py
-find ./app -iname "*.py" | xargs pylint
+pylint application/main.py
+find ./application -iname "*.py" | xargs pylint
 
 # install the application
 pip install --editable .
