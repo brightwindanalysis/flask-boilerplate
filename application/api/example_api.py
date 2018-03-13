@@ -16,16 +16,15 @@ def index():
     return 'Hello, World!'
 
 # default is GET only
-# http://127.0.0.1:5000/param?key=aaa
-@app.route('/param', methods=['GET', 'POST'])
+# http://127.0.0.1:5000/query?key=aaa
+@app.route('/query', methods=['GET', 'POST'])
 def query_param():
-    #request.method
     return 'METHOD %s' % request.args.get('key', '')
 
-# http://127.0.0.1:5000/param/TODO/hello
-@app.route('/param/<param>/hello')
-@app.route('/param/<param>/hello/')
-def get_param(param):
+# http://127.0.0.1:5000/path/TODO/hello
+@app.route('/path/<param>/hello')
+@app.route('/path/<param>/hello/')
+def path_param(param):
     return 'param %s' % param
 
 # http://127.0.0.1:5000/hello/name
