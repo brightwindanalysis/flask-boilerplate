@@ -51,4 +51,4 @@ def page_not_found(error):
 
 @app.teardown_appcontext
 def teardown(error):
-    app.logger.debug('before teardown')
+    app.logger.debug('after each request')
