@@ -46,7 +46,7 @@ pip install -e .
 rm -fr .eggs/ *.egg-info */__pycache__/
 
 # run in debug
-export FLASK_APP=app.main
+export FLASK_APP=application
 export FLASK_DEBUG=1
 flask run
 ```
