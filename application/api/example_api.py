@@ -1,11 +1,12 @@
+from application import app
+from application.service.example_service import ExampleService
+
 from flask import Flask
 from flask import render_template
 from flask import request
 from flask import abort, redirect, url_for
-from flask import jsonify
-from datetime import datetime
 
-from application import app
+example_service = ExampleService()
 
 # http://127.0.0.1:5000/static/example.txt
 
@@ -24,11 +25,11 @@ def query_param():
     #request.method
     return 'METHOD %s' % request.args.get('key', '')
 
-# http://127.0.0.1:5000/env/TODO/hello
-@app.route('/env/<env>/hello')
-@app.route('/env/<env>/hello/')
-def get_clusters(env):
-    return 'env %s' % env
+# http://127.0.0.1:5000/param/TODO/hello
+@app.route('/param/<param>/hello')
+@app.route('/param/<param>/hello/')
+def get_param(param):
+    return 'param %s' % param
 
 # http://127.0.0.1:5000/hello/name
 @app.route('/hello/')
@@ -58,27 +59,4 @@ def teardown(error):
 # http://127.0.0.1:5000/v1/tasks
 @app.route('/v1/tasks', methods=['GET'])
 def get_tasks():
-    tasks = [
-        {
-            'id': 1,
-            'title': u'Buy groceries',
-            'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
-            'done': False
-        },
-        {
-            'id': 2,
-            'title': u'Learn Python',
-            'description': u'Need to find a good Python tutorial on the web', 
-            'done': False
-        }
-    ]
-    app.logger.debug(request.method)
-    app.logger.debug(request.url)
-    #app.logger.debug('\n'.join('{}: {}'.format(k, v) for k, v in request.headers.items()))
-    #app.logger.debug(request.body)
-    return jsonify({
-        'href': request.url,
-        'createdAt': datetime.utcnow().isoformat(),
-        'modifiedAt': datetime.utcnow().isoformat(),
-        'tasks': tasks
-    })
+    return example_service.get_tasks(request)
