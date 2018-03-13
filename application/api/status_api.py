@@ -14,5 +14,5 @@ def info():
     app.logger.debug('info')
     return jsonify({
         'application': app.config['APP_NAME'],
-        'env': app.config['ENV']
+        'env': app.config['ENVIRONMENT']
     })

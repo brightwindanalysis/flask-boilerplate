@@ -48,9 +48,19 @@ rm -fr .eggs/ *.egg-info */__pycache__/ */*/__pycache__/
 export FLASK_APP=application
 export FLASK_DEBUG=1
 flask run
+```
+
+### Run
+
+```
+# activate virtualenv
+source venv/bin/activate
 
 # helper script
 ./dev.sh
+
+# main
+python application/main.py
 ```
 
 ### Docker
