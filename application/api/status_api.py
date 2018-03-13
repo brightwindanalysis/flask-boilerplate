@@ -13,6 +13,6 @@ def status():
 def info():
     app.logger.debug('info')
     return jsonify({
-        'application': 'flask-boilerplate',
-        'env': 'TODO'
+        'application': app.config['APP_NAME'],
+        'env': app.config['ENV']
     })

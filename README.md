@@ -40,15 +40,17 @@ find ./application -iname "*.py" | xargs pylint
 
 # install the application
 pip install --editable .
-pip install -e .
 
 # clean cached files
-rm -fr .eggs/ *.egg-info */__pycache__/
+rm -fr .eggs/ *.egg-info */__pycache__/ */*/__pycache__/
 
 # run in debug
 export FLASK_APP=application
 export FLASK_DEBUG=1
 flask run
+
+# helper script
+./dev.sh
 ```
 
 ### Docker
