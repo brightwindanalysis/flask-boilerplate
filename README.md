@@ -48,6 +48,9 @@ rm -fr .eggs/ *.egg-info */__pycache__/ */*/__pycache__/
 export FLASK_APP=application
 export FLASK_DEBUG=1
 flask run
+
+# logs
+tail -F logs/application.log
 ```
 
 ### Run
@@ -66,5 +69,20 @@ python application/main.py
 ### Docker
 
 ```
-TODO
+# build image
+docker build -t brightwindanalysis/flask-boilerplate:latest .
+
+# start temporary container [port=HOST:CONTAINER]
+docker run \
+  --rm \
+  -e HTTP_PORT=8080 \
+  -p 5000:8080 \
+  --name flask-boilerplate \
+  brightwindanalysis/flask-boilerplate:latest
+
+# test
+http -v :5000
+
+# access container
+docker exec -it flask-boilerplate bash
 ```
