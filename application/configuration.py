@@ -5,8 +5,10 @@ class DefaultConfig(object):
     LOG_PATH = 'logs/application.log'
     ENVIRONMENT = 'DEFAULT'
     DEBUG = False
-    FLASK_HOST = '127.0.0.1'
-    FLASK_PORT = 5000
+    HTTP_HOST = '127.0.0.1'
+    HTTP_PORT = 5000
 
 class Config(DefaultConfig):
-    FLASK_PORT = os.getenv('FLASK_PORT', 5000)
+    # docker doesn't forward 127.0.0.1
+    HTTP_HOST = os.getenv('HTTP_HOST', '0.0.0.0')
+    HTTP_PORT = int(os.getenv('HTTP_PORT', 5000))

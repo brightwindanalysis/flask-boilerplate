@@ -7,4 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./application ./application
 
+COPY setup.py setup.cfg MANIFEST.in ./
+RUN pip install --editable .
+
 CMD [ "python", "./application/main.py" ]
