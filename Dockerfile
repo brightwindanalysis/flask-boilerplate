@@ -5,6 +5,9 @@ WORKDIR /usr/src
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ./app ./app
+COPY ./application ./application
 
-CMD [ "python", "./app/main.py" ]
+COPY setup.py setup.cfg MANIFEST.in ./
+RUN pip install --editable .
+
+CMD [ "python", "./application/main.py" ]

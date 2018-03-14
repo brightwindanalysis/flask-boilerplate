@@ -1,62 +1,88 @@
 # flask-boilerplate
 
-> TODO work in progress
-
-### Documentation
+Documentation
 
 * [Flask](http://flask.pocoo.org)
-* [Python setup](doc/python.md)
 
 ### Setup
+
 ```
-# create virtualenv
-virtualenv -p $(which python3) env
+# create
+virtualenv -p $(which python3) venv
 
 # activate virtualenv
-source env/bin/activate
+source venv/bin/activate
 
 # deactivate virtualenv
 deactivate
 
 # install requirements
 pip install -r requirements.txt
+```
 
-# verify code
-pylint app/app.py
-find ./app -iname "*.py" | xargs pylint
+### Development
+
+```
+# install package
+pip install Flask
+pip install pylint
+
+# update requirements
+pip freeze > requirements.txt
+
+# run tests
+python tests/application_test.py
+python setup.py test
+
+# linting
+pylint application/main.py
+find ./application -iname "*.py" | xargs pylint
+
+# install the application
+pip install --editable .
+
+# clean cached files
+rm -fr .eggs/ *.egg-info */__pycache__/ */*/__pycache__/
+
+# run in debug
+export FLASK_APP=application
+export FLASK_DEBUG=1
+flask run
+
+# logs
+tail -F logs/application.log
 ```
 
 ### Run
+
 ```
 # activate virtualenv
-source env/bin/activate
+source venv/bin/activate
 
-# start app local
-python ./app/main.py
+# helper script
+./dev.sh
 
-# override config
-FLASK_PORT=8080 \
-  python ./app/main.py
+# main
+python application/main.py
 ```
 
 ### Docker
+
 ```
 # build image
 docker build -t brightwindanalysis/flask-boilerplate:latest .
 
-# start temporary container
+# start temporary container [port=HOST:CONTAINER]
 docker run \
   --rm \
-  -e FLASK_PORT=8080 \
-  -p 3000:8080 \
+  -e HTTP_PORT=8080 \
+  -p 5000:8080 \
   --name flask-boilerplate \
   brightwindanalysis/flask-boilerplate:latest
 
 # test
-http :3000
+http -v :5000
 
 # access container
 docker exec -it flask-boilerplate bash
-
-# TODO verify dockerignore skip __pycache__ and *.pyc
 ```
